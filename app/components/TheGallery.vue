@@ -57,18 +57,22 @@ const lbNext = () => {
 
 // ---- 라이트박스 좌우 드래그/스와이프 ----
 const dragStartX = ref<number | null>(null)
+const dragStartY = ref(0)
 const didSwipe = ref(false)
 const SWIPE_THRESHOLD = 50 // px
 
 function onPointerDown(e: PointerEvent) {
   dragStartX.value = e.clientX
+  dragStartY.value = e.clientY
   didSwipe.value = false
 }
 function onPointerUp(e: PointerEvent) {
   if (dragStartX.value === null) return
   const dx = e.clientX - dragStartX.value
+  const dy = e.clientY - dragStartY.value
   dragStartX.value = null
-  if (Math.abs(dx) > SWIPE_THRESHOLD) {
+  // 가로 이동이 충분하고, 세로 이동보다 클 때만 좌우 전환 (세로 드래그는 무시)
+  if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
     didSwipe.value = true
     if (dx < 0) lbNext()
     else lbPrev()
@@ -243,6 +247,8 @@ function onBackdropClick() {
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  touch-action: none; /* 세로 스크롤/드래그 차단 — 좌우 스와이프만 */
+  overscroll-behavior: contain;
 }
 
 .lightbox__img {
@@ -253,7 +259,7 @@ function onBackdropClick() {
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
-  touch-action: pan-y;
+  touch-action: none; /* 이미지 위에서도 세로 제스처 차단 */
 }
 
 .lightbox__close {
