@@ -1,0 +1,118 @@
+/* =============================================================
+   청첩장 글로벌 스타일
+   ============================================================= */
+
+:root {
+  /* 색상 팔레트 */
+  --bg: #f7f3ec;          /* 따뜻한 아이보리 배경 */
+  --bg-soft: #fffdf9;     /* 카드/밝은 영역 */
+  --ink: #4a443c;         /* 기본 글자색 */
+  --ink-soft: #7a7268;    /* 보조 글자색 */
+  --accent: #8a9a7b;      /* 세이지 그린 포인트 */
+  --accent-deep: #6f7d61;
+  --line: #e6ddd0;        /* 구분선 */
+  --gold: #b39b6e;        /* 골드 포인트 */
+
+  /* 폰트 */
+  --font-serif: 'Nanum Myeongjo', serif;
+  --font-en: 'Cormorant Garamond', serif;
+  --font-sans: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+
+  /* 모바일 청첩장 최대 폭 */
+  --page-width: 460px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: #e9e2d6;
+  color: var(--ink);
+  font-family: var(--font-serif);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden; /* 와이드 사진이 화면 폭을 넘을 때 가로 스크롤 방지 */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 모바일 청첩장: 가운데 정렬된 좁은 페이지 */
+.page {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  background: var(--bg);
+  min-height: 100vh;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+}
+
+/* 공통 섹션 */
+.section {
+  padding: 64px 28px;
+  text-align: center;
+}
+
+.section--tight {
+  padding: 44px 28px;
+}
+
+/* 섹션 제목 (영문 라벨 + 한글) */
+.eyebrow {
+  font-family: var(--font-en);
+  font-size: 15px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+
+.divider {
+  width: 1px;
+  height: 48px;
+  background: var(--line);
+  margin: 0 auto;
+}
+
+/* 스크롤 등장 애니메이션 */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
