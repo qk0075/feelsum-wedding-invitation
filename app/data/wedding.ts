@@ -77,9 +77,9 @@ export const wedding = {
         { label: '신랑 어머니 김점순', bank: '새마을금고', number: '0902-10-010805-0', holder: '김점순' },
       ],
       bride: [
-        { label: '신부 김수민', bank: '', number: '', holder: '김수민' },
+        { label: '신부 김수민', bank: '카카오뱅크', number: '3333-06-2898727', holder: '김수민' },
         { label: '신부 아버지 김왕기', bank: '', number: '', holder: '김왕기' },
-        { label: '신부 어머니 강정현', bank: '', number: '', holder: '강정현' },
+        { label: '신부 어머니 강정현', bank: '국민', number: '808-01-0085-234', holder: '강정현' },
       ],
     },
   },
