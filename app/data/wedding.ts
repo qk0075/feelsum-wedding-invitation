@@ -62,8 +62,8 @@ export const wedding = {
   // 사진 한 장 경로를 적으면 화면 가득 크게 표시됩니다. 비워두면 표시되지 않습니다.
   bannerPhoto: '/gallery/wide.JPG',
 
-  // ---- 갤러리 (public/gallery/ 폴더의 001.JPG ~ 032.JPG, 총 32장) ----
-  gallery: Array.from({ length: 32 }, (_, i) => `/gallery/${String(i + 1).padStart(3, '0')}.JPG`),
+  // ---- 갤러리 (public/gallery/ 폴더의 001.JPG ~ 013.JPG, 총 13장) ----
+  gallery: Array.from({ length: 13 }, (_, i) => `/gallery/${String(i + 1).padStart(3, '0')}.JPG`),
 
   // ---- 마음 전하실 곳 ----
   // message: 계좌를 보여주지 않는 버전에서 표시되는 문구
