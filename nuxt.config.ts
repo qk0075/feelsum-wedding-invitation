@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   // 두 버전 페이지를 모두 미리 생성
   nitro: {
     prerender: {
-      routes: ['/', '/account'],
+      routes: ['/', '/cfnd'],
     },
   },
 
