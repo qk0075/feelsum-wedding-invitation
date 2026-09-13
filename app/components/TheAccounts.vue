@@ -24,7 +24,9 @@ const popupRows = computed(() =>
 const openPopup = (side: 'groom' | 'bride') => (popup.value = side)
 const closePopup = () => (popup.value = null)
 
-// 복사
+// 복사 (은행명/하이픈을 뺀 숫자만 복사되도록)
+const digitsOnly = (text: string) => text.replace(/\D/g, '')
+
 const copiedKey = ref('')
 const copy = async (key: string, text: string) => {
   try {
@@ -72,7 +74,7 @@ const copy = async (key: string, text: string) => {
                 <span class="popup-account">{{ a.bank }} {{ a.number }}</span>
                 <span class="popup-holder">예금주 {{ a.holder }}</span>
               </div>
-              <button class="popup-copy" @click="copy(a.label, a.bank + ' ' + a.number)">
+              <button class="popup-copy" @click="copy(a.label, digitsOnly(a.number))">
                 {{ copiedKey === a.label ? '복사됨' : '복사' }}
               </button>
             </div>
