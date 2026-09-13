@@ -23,13 +23,13 @@ export const wedding = {
   // ---- 가족식 일시 ----
   date: {
     year: 2026,
-    month: 10, // 숫자 (1~12)
-    day: 31,
+    month: 11, // 숫자 (1~12)
+    day: 1,
     hour: 0, // 시간 비공개 (가족식)
     minute: 0,
-    dayOfWeek: '토요일',
+    dayOfWeek: '일요일',
     // 화면 표시용 문구
-    displayDate: '2026년 10월 31일 토요일',
+    displayDate: '2026년 11월 1일 일요일',
     displayTime: '', // 시간 비공개 — 비워두면 표시되지 않습니다.
   },
 
