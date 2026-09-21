@@ -10,6 +10,10 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  runtimeConfig: {
+    public: { siteUrl },
+  },
+
   nitro: {
     prerender: {
       routes: ['/', '/cfnd'],

@@ -89,6 +89,12 @@ const close = () => {
   activeIndex.value = null
 }
 
+function onKeydown(e: KeyboardEvent) {
+  if (activeIndex.value !== null && e.key === 'Escape') close()
+}
+onMounted(() => window.addEventListener('keydown', onKeydown))
+onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
+
 function slideWidth() {
   const el = lbTrack.value
   return el ? el.clientWidth / 3 : window.innerWidth
@@ -96,12 +102,12 @@ function slideWidth() {
 
 function onPointerDown(e: PointerEvent) {
   if (animating.value) return
+  if ((e.target as HTMLElement).closest('.lightbox__close')) return
   dragging.value = true
   didSwipe.value = false
   axis.value = 'none'
   dragStartX.value = e.clientX
   dragStartY.value = e.clientY
-  ;(e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId)
 }
 
 function onPointerMove(e: PointerEvent) {
@@ -113,6 +119,7 @@ function onPointerMove(e: PointerEvent) {
     if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return
     axis.value = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y'
     didSwipe.value = true
+    if (axis.value === 'x') (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId)
   }
   if (axis.value !== 'x') return
 
