@@ -56,7 +56,7 @@ export const wedding = {
     accounts: {
       groom: [
         { label: '신랑 황필규', bank: '하나', number: '361-910450-79207', holder: '황필규' },
-        { label: '신랑 아버지 황의각', bank: '', number: '', holder: '황의각' },
+        { label: '신랑 아버지 황의각', bank: '우체국', number: '101329-02-293759', holder: '황의각' },
         { label: '신랑 어머니 김점순', bank: '새마을금고', number: '0902-10-010805-0', holder: '김점순' },
       ],
       bride: [
